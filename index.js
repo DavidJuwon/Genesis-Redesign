@@ -134,6 +134,7 @@ gsap.utils.toArray("#section12 .reveal").forEach(item => {
 });
 
 const hamburger    = document.querySelector(".hamburger");
+const hamburgerImg  = hamburger.querySelector("img");
 const menuBox      = document.getElementById("Menu_box");
 const mainMenuLinks= document.querySelectorAll(".mainMenu-list a");
 const subMenus     = document.querySelectorAll(".subMenu");
@@ -144,6 +145,16 @@ hamburger.addEventListener("click", () => {
   // 열기/닫기
   const willOpen = !menuBox.classList.contains("active");
   menuBox.classList.toggle("active", willOpen);
+
+   if (willOpen) {
+    hamburgerImg.src = "images/nav/close-btn.png"; // 메뉴 열리면 close 아이콘
+    hamburgerImg.alt = "닫기 버튼";
+    hamburger.setAttribute("aria-label", "Close menu");
+  } else {
+    hamburgerImg.src = "images/header/Menu_btn.png"; // 닫으면 햄버거 아이콘
+    hamburgerImg.alt = "햄버거 메뉴 버튼";
+    hamburger.setAttribute("aria-label", "Open menu");
+  }
 
   // 닫힐 때는 상태 초기화
   if (!willOpen) {
