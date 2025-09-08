@@ -948,6 +948,31 @@ body {
     #section1{
         display: none;
     }
+    .menu-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .mainMenu-list {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        z-index: 1000;
+    }
+    .subMenu-list {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        transform: translateX(-100%);
+        z-index: 1200;
+    }
+    .mainMenu-list li a {
+        font-size: 20px;
+    }
+    .subMenu li a {
+        font-size: 18px;
+    }
     #horizontal-sections {
         display: flex;
         overflow-x: auto;
@@ -955,7 +980,7 @@ body {
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         height: 100vh;
-  }
+    }
 
     #horizontal-sections::-webkit-scrollbar {
         display: none;
@@ -968,12 +993,12 @@ body {
     }
     .slide-dots {
         position: absolute;
-        bottom: 20px;
+        bottom: 2%;
         left: 50%;
         transform: translateX(-50%);
         display: flex;
         gap: 10px;
-        z-index: 2000;
+        z-index: 500;
     }
 
     .slide-dots .dot {
@@ -1221,6 +1246,12 @@ body {
         color: #333;
         border-radius: 20px;
         font-size: 14px;
+    }
+    .event-content {
+        position: absolute;
+        width: 100%;
+        left: 5%;
+        top: 40%;
     }
     .event-desc {
         font-size: 18px;
