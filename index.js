@@ -23,19 +23,84 @@ tl.to("#section1 .text1", {opacity:0, duration:0.5}, 0.5)
   .to(["#section1 .text3", "#section1 .overlay"], {opacity:0, duration:0.5}, 3.5);
 
 // section3~section8 책넘김 패럴랙스
-const bookSections = gsap.utils.toArray("#section2, #section3, #section4, #section5, #section6, #section7");
+const bookSections = gsap.utils.toArray("#horizontal-sections > section");
 
-bookSections.forEach((section, i) => {
-  ScrollTrigger.create({
-    trigger: section,
-    start: "top top",
-    end: "bottom top",
-    pin: true,
-    pinSpacing: true,  // true로 해야 다음 섹션으로 자연스럽게 넘어감
-    scrub: 1.2,         // 딜레이 느낌
-    markers: false,
+if (window.innerWidth > 1023){
+  bookSections.forEach((section, i) => {
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top top",
+      end: "bottom top",
+      pin: true,
+      pinSpacing: true,  // true로 해야 다음 섹션으로 자연스럽게 넘어감
+      scrub: 1.2,         // 딜레이 느낌
+      markers: false,
+    });
   });
-});
+} else {
+  // === 모바일: 가로 슬라이드 + dot 네비게이션 + 자동 캐러셀 ===
+  const slider = document.getElementById("horizontal-sections");
+  const dots = document.querySelectorAll(".slide-dots .dot");
+  const slideCount = dots.length;
+  let currentIndex = 0;
+  let autoSlide;
+
+  // 슬라이드 이동 함수
+  function goToSlide(index) {
+    slider.scrollTo({
+      left: index * window.innerWidth,
+      behavior: "smooth"
+    });
+    currentIndex = index;
+    updateDots();
+  }
+
+  // 점 업데이트
+  function updateDots() {
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
+  }
+
+  // 자동 슬라이드 시작
+  function startAutoSlide() {
+    autoSlide = setInterval(() => {
+      let nextIndex = (currentIndex + 1) % slideCount;
+      goToSlide(nextIndex);
+    }, 5000); // 5초마다 이동
+  }
+
+  // 자동 슬라이드 정지
+  function stopAutoSlide() {
+    clearInterval(autoSlide);
+  }
+
+  // 스크롤 시 현재 인덱스 감지
+  slider.addEventListener("scroll", () => {
+    let index = Math.round(slider.scrollLeft / window.innerWidth);
+    if (index !== currentIndex) {
+      currentIndex = index;
+      updateDots();
+    }
+  });
+
+  // dot 클릭 시 해당 슬라이드 이동 + 자동슬라이드 리셋
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => {
+      stopAutoSlide();
+      goToSlide(i);
+      startAutoSlide();
+    });
+  });
+
+  // 유저가 터치(스와이프)하면 자동 슬라이드 잠시 멈춤
+  slider.addEventListener("touchstart", stopAutoSlide);
+  slider.addEventListener("touchend", startAutoSlide);
+
+  // 초기 실행
+  updateDots();
+  startAutoSlide();
+}
 
 // section2는 일반 스크롤
 ScrollTrigger.create({
