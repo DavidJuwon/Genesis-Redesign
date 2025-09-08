@@ -1121,6 +1121,9 @@ body {
     .icon-list>ul>li>a>p{
         margin-left: 15px;
     }
+    .section9-inner>h2 {
+        margin-left: 20px;
+    }
     .award-card{
         flex:  0 0 90%;
         margin: 0 calc((100vw - 90%) / 2); /* 항상 중앙에 위치 */
@@ -1149,5 +1152,115 @@ body {
         position: absolute;
         right: 30px;
         bottom: 20px;
+    }
+    .space {
+        width: 90%;
+        margin: 0 auto 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        text-align: center;
+    }
+    .space-img {
+        width: 100%;
+        flex-shrink: 0;
+    }
+    .space-content {
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .space-title {
+        font-size: 24px;
+        color: #333;
+    }
+    .space-desc {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #555;
+    }
+    .space-btn>a {
+        padding: 10px 80px;
+        border: 1px solid #333;
+        color: #333;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+    .roadtrip {
+        width: 90%;
+        margin: 0 auto 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        text-align: center;
+    }
+    .roadtrip-img {
+        width: 100%;
+        flex-shrink: 0;
+    }
+    .roadtrip-content {
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .roadtrip-title {
+        font-size: 24px;
+        color: #333;
+    }
+    .roadtrip-desc {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #555;
+    }
+    .roadtrip-btn>a {
+        padding: 10px 80px;
+        border: 1px solid #333;
+        color: #333;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+    .event-desc {
+        font-size: 18px;
+    }
+    .event-btn>a {
+        text-align: center;
+        width: 90%;
+        padding: 15px;
+    }
+    #section12 {
+        padding: 80px 0;
+    }
+    #section12>h2 {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .card-wrap {
+        display: block;
+    }
+    .content-card {
+        width: 90%;
+        margin: 0 auto;
+        height: 480px;
+        transition: 0.5s;
+    }
+    .card-etc{
+        position: relative;
+    }
+    .card-etc>a {
+        position: absolute;
+        top: 0;
+    }
+    .sns-wrap{
+        margin: 0 auto;
+    }
+    .text-list {
+        display: none;
+    }
+    .copyrights-text>p {
+        font-size: 12px;
     }
 }
