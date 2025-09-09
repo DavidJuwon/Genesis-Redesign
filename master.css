@@ -988,7 +988,6 @@ form{
 input{
     outline-style: none;
     border: none;
-    -webkit-appearance: none;
 }
 input[type="text"],
 input[type="password"]{
