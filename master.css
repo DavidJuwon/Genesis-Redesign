@@ -993,14 +993,14 @@ input[type="text"],
 input[type="password"]{
     width: 300px;
 }
-input[type="submit"]{
+.formsection>button{
     border: 1px solid #ccc;
     width: 100%;
     padding: 10px 0;
     transition: 0.4s;
     cursor: pointer;
 }
-input[type="submit"]:hover{
+.formsection>button:hover{
     background: #111;
     color: white;
 }
