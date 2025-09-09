@@ -255,3 +255,17 @@ backBtn.addEventListener("click", () => {
   mainMenuLinks.forEach(l => l.classList.remove("active"));
   subMenus.forEach(s => s.classList.remove("active"));
 });
+
+const login=document.getElementsByClassName('login-btn');
+const login_back=document.getElementsByClassName('login-back');
+const login_page=document.getElementsByClassName('login-page');
+
+// 로그인 모달
+login[0].addEventListener('click',function(){
+    login_back[0].style.display='block';
+    login_page[0].style.display='block';
+});
+login_back[0].addEventListener('click',function(){
+    login_back[0].style.display='none';
+    login_page[0].style.display='none';
+});
