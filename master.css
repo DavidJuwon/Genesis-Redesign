@@ -988,6 +988,7 @@ form{
 input{
     outline-style: none;
     border: none;
+    -webkit-appearance: none;
 }
 input[type="text"],
 input[type="password"]{
@@ -999,7 +1000,6 @@ input[type="submit"]{
     padding: 10px 0;
     transition: 0.4s;
     cursor: pointer;
-    -webkit-appearance: none;
 }
 input[type="submit"]:hover{
     background: #111;
